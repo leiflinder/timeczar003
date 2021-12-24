@@ -1,0 +1,36 @@
+
+.syslog li a {
+    padding: .5em;
+    background:white;
+    color:black;
+    text-decoration:none;
+    margin: 0 .2em;
+}
+
+.syslog li a:hover {
+    padding: .5em;
+    background:black;
+    color:white;
+}
+
+.logout_dropdown{
+    border:solid red 1px;
+}
+.syslog .username {
+    color: #4dd2ff;
+}
+.footerdiv {
+    height:5em;
+    background:black;
+    padding:1em;
+}
+.footerdiv p {
+    font-size: 150%;
+    color:white;
+    text-align:center;
+}
+
+.container-fluid {
+    padding-top:1em;
+}
+

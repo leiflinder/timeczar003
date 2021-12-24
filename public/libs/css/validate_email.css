@@ -1,0 +1,119 @@
+/* Style all input fields */
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Style the container for inputs */
+.container {
+  background-color: white;
+  padding: 20px;
+}
+
+/* The message box is shown when the user clicks on the password field */
+#message {
+  display:none;
+ /* background: #f1f1f1;*/
+  background: white;
+  color: #000;
+  position: relative;
+  padding: 20px;
+/*  margin-top: 10px; */
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -15px;
+  content: "✔";
+}
+
+/* Add a red text color and an "x" when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -15px;
+  content: "✖";
+}
+
+.register_form{
+ width: 500px;
+ height:700px;
+ margin:0px auto;
+}
+
+.tutorial-wrapper{
+        width: 100%;
+    }
+.tutorial-wrapper form{
+        background-color: #ffc;
+        border: 1px solid #cc9;
+        padding: 10px;
+        font-family: verdana;
+        width: 75%;
+        font-size: 1em;
+    }
+    .field-wrapper{
+        margin: 2px 0 2px 0;
+        padding: 0;
+    }
+    .tutorial-wrapper label{
+        float: left;
+        text-align: right;
+        margin: 0 5px 0 0;
+        width: 30%;
+    }
+    .tutorial-wrapper input{
+        width: 200px;
+        border: 1px solid #cc9;
+    }
+    .confirm-message{
+        margin: 0;
+        padding: 0;
+        font-size: .8em;
+    }
+.valpassUL li {
+ list-style-type:none;
+ padding-left:0px;
+ margin-left:0px;
+}
+
+.valpassUL {
+    list-style-type:none;
+}
+#showPasswordsInput .inlineFormElement{
+  width:20px;
+}
+
+#showPasswordsInput{
+  font-variant: small-caps;
+  font-size: 90%;
+  color:#666;
+  text-align:right;
+}
