@@ -22,7 +22,7 @@
   <?php include('includes/print-errors.php');?>
 </header>
 <!-- Begin page content -->
-<main class="flex-shrink-0">
+<main>
   <div class="container">
 	<?php
 		$zombie = new pagemaster;

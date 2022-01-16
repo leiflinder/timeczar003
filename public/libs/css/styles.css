@@ -1,4 +1,36 @@
 
+         /* #register_form input,
+         textarea {
+         margin: 5px 0;
+         padding: 5px 10px;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         }
+
+         #register_form input:invalid,
+         select:invalid,
+         textarea:invalid {
+         border-color: red;
+         } */
+
+
+         input:invalid {
+            border-color: red;
+          }
+          /* form:invalid {
+            border: 5px solid #ffdddd;
+          } */
+          /* input:valid {
+            background-color: #ddffdd;
+          } */
+          /* form:valid {
+            border: 5px solid #ddffdd;
+          } */
+          /* input:required {
+            border-color: #800000;
+            border-width: 3px;
+          } */
+
 .syslog li a {
     padding: .5em;
     background:white;

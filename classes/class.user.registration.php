@@ -1,33 +1,80 @@
 <?php
 class user_registration extends conn {
-    var $userid ="";
+    var $userid ="userid";
     var $home_url ="";
     var $require_login = FALSE;
-    var $page_title="";
-    var $firstname="";
-    var $lastname="";
-    var $email="";
-    var $password="";
-    var $user_ip;
-    var $country;
+    var $page_title="page_title";
+    var $firstname="firstname";
+    var $lastname="lastname";
+    var $email="email";
+    var $password="password";
+    var $user_ip="11111111111";
+    var $country="country";
     var $status="0";
     var $created="";
     var $access_level = "Customer";
     var $access_code="";
 
 
+    private function getIpAddress()
+    {
+        $ipAddress = '';
+        if (! empty($_SERVER['HTTP_CLIENT_IP'])) {
+            // to get shared ISP IP address
+            $ipAddress = $_SERVER['HTTP_CLIENT_IP'];
+        } else if (! empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            // check for IPs passing through proxy servers
+            // check if multiple IP addresses are set and take the first one
+            $ipAddressList = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            foreach ($ipAddressList as $ip) {
+                if (! empty($ip)) {
+                    // if you prefer, you can check for valid IP address here
+                    $ipAddress = $ip;
+                    break;
+                }
+            }
+        } else if (! empty($_SERVER['HTTP_X_FORWARDED'])) {
+            $ipAddress = $_SERVER['HTTP_X_FORWARDED'];
+        } else if (! empty($_SERVER['HTTP_X_CLUSTER_CLIENT_IP'])) {
+            $ipAddress = $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+        } else if (! empty($_SERVER['HTTP_FORWARDED_FOR'])) {
+            $ipAddress = $_SERVER['HTTP_FORWARDED_FOR'];
+        } else if (! empty($_SERVER['HTTP_FORWARDED'])) {
+            $ipAddress = $_SERVER['HTTP_FORWARDED'];
+        } else if (! empty($_SERVER['REMOTE_ADDR'])) {
+            $ipAddress = $_SERVER['REMOTE_ADDR'];
+        }
+
+        $this->user_ip = $ipAddress;
+    }
+
+
+
 public function register_form2(){
+    // create user IP property
+    $this->getIpAddress();
     ?> 
-    <link rel="stylesheet" type="text/css" href="libs/css/validate_email.css">
+    <style>
+        
+         input:invalid
+         select:invalid,
+         textarea:invalid {
+         border-color: red;
+         }
+
+    </style>
+</form>     
     <div class="register_form">
          <div class="container">
            <div id="showPasswordsInput">Show Passwords <input type="checkbox" id="showpassword" class="inlineFormElement" onclick="showPassword_psw1()"></div>
            <form action='bounce.register.php' method='post' id='register'>
             <input type="hidden" name="registration2" id="registration2" value="registration2"/>
+            <input type="hidden" name="user_ip" value="<?php print($this->user_ip); ?>"/>
            <label for="firstname">First Name</label>
            <input type='text' name='firstname' id='firstname' required value=''/>
                <label for="email">Email</label>
                <input type="email" id="email" name="email" required> 
+
                <label for="psw1">Password</label>
                <!-- <input type="password" name="password" id="password2" onkeyup="checkPass();">-->
                <input type="password" id="psw1" name="psw1" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required onkeyup="checkPass();">
